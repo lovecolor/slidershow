@@ -32,6 +32,17 @@ export default class App extends Component {
       viTriChot:viTriTiepTheo
     })
   }
+   componentDidMount() {
+    addressTimeout = setTimeout(() => {
+      this.chuyenToi()
+    }, 5000)
+  }
+  componentDidUpdate() {
+    if (addressTimeout) clearTimeout(addressTimeout)
+    addressTimeout = setTimeout(() => {
+      this.chuyenToi()
+    }, 5000)
+  }
   render() {
     return (
       <div className="slideshow-container">
